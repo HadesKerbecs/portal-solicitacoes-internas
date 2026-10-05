@@ -1,0 +1,174 @@
+<div class="portal-layout">
+  <app-sidebar></app-sidebar>
+
+  <main class="portal-content">
+    <div class="solicitacoes-page">
+      <header class="page-header">
+        <div>
+          <span class="pagina-eyebrow">PORTAL INTERNO</span>
+          <h2>Solicitações</h2>
+          <p>Gerencie e acompanhe suas solicitações internas.</p>
+        </div>
+      </header>
+
+      <!-- Filtros -->
+      <section class="content-card">
+        <div class="card-header">
+          <div>
+            <h2>Filtros</h2>
+            <p>Utilize os filtros para localizar solicitações.</p>
+          </div>
+
+          <div class="card-icon filtro-icon">☰</div>
+        </div>
+
+        <app-filtros (filtrar)="aplicarFiltros($event)"></app-filtros>
+      </section>
+
+      <!-- Lista -->
+      <section class="content-card lista-card">
+        <div class="card-header">
+          <div>
+            <h2>Solicitações registradas</h2>
+            <p>Visualize e gerencie as solicitações cadastradas.</p>
+          </div>
+        </div>
+
+        <app-lista
+          [solicitacoes]="solicitacoes()"
+          (editar)="editarSolicitacao($event)"
+          (excluir)="excluirSolicitacao($event)"
+          (alterarStatus)="alterarStatus($event)"
+          (detalhes)="verDetalhes($event)"
+        ></app-lista>
+
+        @if (totalPaginas() > 1) {
+          <div class="paginacao">
+            <button
+              type="button"
+              class="pagina-botao"
+              [disabled]="paginaAtual() === 1"
+              (click)="mudarPagina(paginaAtual() - 1)"
+            >
+              Anterior
+            </button>
+
+            @for (pagina of [].constructor(totalPaginas()); track $index) {
+              <button
+                type="button"
+                class="pagina-botao"
+                [class.ativa]="paginaAtual() === $index + 1"
+                (click)="mudarPagina($index + 1)"
+              >
+                {{ $index + 1 }}
+              </button>
+            }
+
+            <button
+              type="button"
+              class="pagina-botao"
+              [disabled]="paginaAtual() === totalPaginas()"
+              (click)="mudarPagina(paginaAtual() + 1)"
+            >
+              Próxima
+            </button>
+          </div>
+        }
+      </section>
+
+      <!-- Modal de edição -->
+      @if (solicitacaoSelecionada) {
+        <div class="modal-overlay">
+          <div class="modal-container">
+            <div class="modal-header">
+              <div>
+                <span class="modal-label">EDITAR SOLICITAÇÃO</span>
+                <h2>Editar solicitação</h2>
+              </div>
+
+              <button
+                type="button"
+                class="modal-close"
+                (click)="cancelarEdicao()"
+                aria-label="Fechar"
+              >
+                ×
+              </button>
+            </div>
+
+            <div class="modal-body">
+              <app-editar
+                [solicitacao]="solicitacaoSelecionada"
+                (salvo)="solicitacaoEditada($event)"
+                (cancelado)="cancelarEdicao()"
+              ></app-editar>
+            </div>
+          </div>
+        </div>
+      }
+
+      <!-- Modal de exclusão -->
+      @if (solicitacaoExcluindo) {
+        <div class="modal-overlay">
+          <div class="modal-container modal-small">
+            <div class="modal-header">
+              <div>
+                <span class="modal-label perigo">EXCLUSÃO</span>
+                <h2>Excluir solicitação</h2>
+              </div>
+
+              <button
+                type="button"
+                class="modal-close"
+                (click)="cancelarExclusao()"
+                aria-label="Fechar"
+              >
+                ×
+              </button>
+            </div>
+
+            <div class="modal-body">
+              <app-excluir
+                [solicitacao]="solicitacaoExcluindo"
+                (excluido)="solicitacaoExcluida($event)"
+                (cancelado)="cancelarExclusao()"
+              ></app-excluir>
+            </div>
+          </div>
+        </div>
+      }
+
+      <!-- Modal de status -->
+      @if (solicitacaoStatus) {
+        <div class="modal-overlay">
+          <div class="modal-container modal-small">
+            <div class="modal-header">
+              <div>
+                <span class="modal-label">STATUS</span>
+                <h2>Alterar status</h2>
+              </div>
+
+              <button
+                type="button"
+                class="modal-close"
+                (click)="solicitacaoStatus = null"
+                aria-label="Fechar"
+              >
+                ×
+              </button>
+            </div>
+
+            <div class="modal-body">
+              <app-status
+                [solicitacao]="solicitacaoStatus"
+                (alterado)="statusAlterado($event)"
+              ></app-status>
+            </div>
+          </div>
+        </div>
+      }
+
+      <app-detalhes [solicitacao]="solicitacaoDetalhes" (fechar)="fecharDetalhes()"></app-detalhes>
+    </div>
+  </main>
+</div>

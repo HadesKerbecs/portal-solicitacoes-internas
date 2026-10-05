@@ -1,0 +1,371 @@
+:host {
+  display: block;
+}
+
+
+/* =========================
+   OVERLAY
+   ========================= */
+
+.detalhes-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background: rgba(15, 23, 42, 0.45);
+
+  backdrop-filter: blur(2px);
+
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   MODAL
+   ========================= */
+
+.detalhes-modal {
+  width: 100%;
+  max-width: 720px;
+  max-height: calc(100vh - 48px);
+
+  overflow-y: auto;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+
+  box-shadow:
+    0 20px 50px rgba(15, 23, 42, 0.18);
+
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   CABEÇALHO
+   ========================= */
+
+.detalhes-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 24px 26px;
+
+  border-bottom: 1px solid #eef1f5;
+}
+
+.detalhes-eyebrow {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #2563eb;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+}
+
+.detalhes-header h2 {
+  margin: 0;
+
+  color: #172033;
+
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.detalhes-header p {
+  margin: 6px 0 0;
+
+  color: #64748b;
+
+  font-size: 13px;
+}
+
+
+/* =========================
+   BOTÃO FECHAR
+   ========================= */
+
+.botao-fechar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+
+  flex-shrink: 0;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+
+  background: #f8fafc;
+
+  color: #64748b;
+
+  font-family: inherit;
+  font-size: 22px;
+  font-weight: 400;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.botao-fechar:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #334155;
+}
+
+
+/* =========================
+   STATUS
+   ========================= */
+
+.detalhes-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 18px 26px;
+
+  background: #fafbfc;
+
+  border-bottom: 1px solid #eef1f5;
+}
+
+.status-label {
+  color: #64748b;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 5px 10px;
+
+  border-radius: 6px;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.status-badge.aberto {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.status-badge.atendimento {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.status-badge.concluido {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+
+/* =========================
+   INFORMAÇÕES
+   ========================= */
+
+.detalhes-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 20px;
+
+  padding: 24px 26px;
+}
+
+.detalhe-item {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.detalhe-titulo {
+  grid-column: 1 / -1;
+}
+
+.detalhe-label {
+  color: #94a3b8;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.detalhe-valor {
+  color: #334155;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  word-break: break-word;
+}
+
+
+/* =========================
+   CATEGORIA
+   ========================= */
+
+.categoria-badge {
+  width: fit-content;
+
+  padding: 5px 9px;
+
+  border-radius: 6px;
+
+  background: #f1f5f9;
+
+  color: #475569;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+
+/* =========================
+   DESCRIÇÃO
+   ========================= */
+
+.descricao-section {
+  padding: 0 26px 24px;
+}
+
+.descricao-box {
+  margin-top: 8px;
+  padding: 14px 16px;
+
+  min-height: 90px;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 9px;
+
+  background: #fafbfc;
+
+  color: #475569;
+
+  font-size: 13px;
+  line-height: 1.6;
+
+  white-space: pre-wrap;
+}
+
+
+/* =========================
+   RODAPÉ
+   ========================= */
+
+.detalhes-footer {
+  display: flex;
+  justify-content: flex-end;
+
+  padding: 18px 26px;
+
+  border-top: 1px solid #eef1f5;
+}
+
+.botao-fechar-footer {
+  min-height: 36px;
+
+  padding: 8px 16px;
+
+  border: 1px solid #d8dee8;
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #475569;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.botao-fechar-footer:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+
+/* =========================
+   RESPONSIVO
+   ========================= */
+
+@media (max-width: 600px) {
+  .detalhes-overlay {
+    padding: 12px;
+  }
+
+  .detalhes-modal {
+    max-height: calc(100vh - 24px);
+  }
+
+  .detalhes-header {
+    padding: 20px;
+  }
+
+  .detalhes-status {
+    padding: 16px 20px;
+  }
+
+  .detalhes-grid {
+    grid-template-columns: 1fr;
+
+    padding: 20px;
+  }
+
+  .detalhe-titulo {
+    grid-column: auto;
+  }
+
+  .descricao-section {
+    padding: 0 20px 20px;
+  }
+
+  .detalhes-footer {
+    padding: 16px 20px;
+  }
+
+  .botao-fechar-footer {
+    width: 100%;
+  }
+}

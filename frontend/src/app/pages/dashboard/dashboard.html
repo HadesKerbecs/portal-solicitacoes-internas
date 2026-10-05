@@ -1,0 +1,125 @@
+<div class="portal-layout">
+  <app-sidebar></app-sidebar>
+
+  <main class="portal-content">
+    <div class="dashboard-page">
+      <header class="dashboard-header">
+        <div>
+          <span class="dashboard-eyebrow">VISÃO GERAL</span>
+
+          <h2>Dashboard</h2>
+
+          <p>Acompanhe o resumo das solicitações internas.</p>
+        </div>
+      </header>
+
+      <section class="indicadores">
+        <div class="indicador-card">
+          <div class="indicador-topo">
+            <span class="indicador-label">Total de solicitações</span>
+
+            <div class="indicador-icon total">#</div>
+          </div>
+
+          <div class="indicador-valor">
+            {{ totalSolicitacoes() }}
+          </div>
+
+          <span class="indicador-descricao"> Solicitações cadastradas </span>
+        </div>
+
+        <div class="indicador-card">
+          <div class="indicador-topo">
+            <span class="indicador-label">Solicitações abertas</span>
+
+            <div class="indicador-icon aberto">!</div>
+          </div>
+
+          <div class="indicador-valor">
+            {{ solicitacoesAbertas() }}
+          </div>
+
+          <span class="indicador-descricao"> Aguardando atendimento </span>
+        </div>
+
+        <div class="indicador-card">
+          <div class="indicador-topo">
+            <span class="indicador-label">Em atendimento</span>
+
+            <div class="indicador-icon atendimento">↻</div>
+          </div>
+
+          <div class="indicador-valor">
+            {{ solicitacoesEmAtendimento() }}
+          </div>
+
+          <span class="indicador-descricao"> Em andamento </span>
+        </div>
+
+        <div class="indicador-card">
+          <div class="indicador-topo">
+            <span class="indicador-label">Concluídas</span>
+
+            <div class="indicador-icon concluido">✓</div>
+          </div>
+
+          <div class="indicador-valor">
+            {{ solicitacoesConcluidas() }}
+          </div>
+
+          <span class="indicador-descricao"> Solicitações finalizadas </span>
+        </div>
+      </section>
+
+      <!-- Solicitações recentes -->
+      <section class="solicitacoes-recentes">
+        <div class="recentes-header">
+          <div>
+            <h3>Solicitações recentes</h3>
+
+            <p>Últimas solicitações cadastradas no sistema.</p>
+          </div>
+
+          <a routerLink="/solicitacoes" class="ver-todas"> Ver todas </a>
+        </div>
+
+        <div class="recentes-lista">
+          @for (solicitacao of ultimasSolicitacoes(); track solicitacao.id) {
+            <article class="recente-item">
+              <div class="recente-principal">
+                <span class="recente-id"> #{{ solicitacao.id }} </span>
+
+                <div>
+                  <h4>{{ solicitacao.titulo }}</h4>
+
+                  <span class="recente-solicitante">
+                    {{ solicitacao.solicitante.username }}
+                  </span>
+                </div>
+              </div>
+
+              <span
+                class="status-badge"
+                [class.aberto]="solicitacao.status === 'ABERTO'"
+                [class.atendimento]="solicitacao.status === 'EM_ATENDIMENTO'"
+                [class.concluido]="solicitacao.status === 'CONCLUIDO'"
+              >
+                {{
+                  solicitacao.status === 'ABERTO'
+                    ? 'Aberto'
+                    : solicitacao.status === 'EM_ATENDIMENTO'
+                      ? 'Em atendimento'
+                      : 'Concluído'
+                }}
+              </span>
+
+              <span class="recente-data">
+                {{ solicitacao.created_at | date: 'dd/MM/yyyy HH:mm' }}
+              </span>
+            </article>
+          }
+        </div>
+      </section>
+    </div>
+  </main>
+</div>

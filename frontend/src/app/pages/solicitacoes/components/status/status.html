@@ -1,0 +1,40 @@
+<div class="status-header">
+  <div>
+    <span class="status-eyebrow">ATUALIZAÇÃO</span>
+    <h3>Alterar status</h3>
+    <p>Atualize o andamento desta solicitação.</p>
+  </div>
+
+  <div class="status-icon">↻</div>
+</div>
+
+<div class="status-atual">
+  <span class="status-label">Status atual</span>
+
+  <span class="status-badge">
+    {{ getStatusLabel(solicitacao?.status ?? '') }}
+  </span>
+</div>
+
+<div class="form-group">
+  <label for="novoStatus">Novo status</label>
+
+  <select id="novoStatus" [(ngModel)]="novoStatus">
+    <option value="">Selecione um status</option>
+
+    @for (status of statuses; track status.value) {
+      <option [value]="status.value">
+        {{ status.label }}
+      </option>
+    }
+  </select>
+</div>
+
+<div class="status-footer">
+  <span class="status-info"> A alteração será registrada no sistema. </span>
+
+  <button type="button" (click)="alterarStatus()">
+    <span>✓</span>
+    Atualizar status
+  </button>
+</div>

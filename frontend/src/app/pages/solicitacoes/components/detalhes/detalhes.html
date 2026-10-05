@@ -1,0 +1,107 @@
+@if (solicitacao) {
+  <div class="detalhes-overlay" (click)="fecharDetalhes()">
+    <section
+      class="detalhes-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="detalhes-titulo"
+      (click)="$event.stopPropagation()"
+    >
+      <!-- Cabeçalho -->
+
+      <header class="detalhes-header">
+        <div>
+          <span class="detalhes-eyebrow"> SOLICITAÇÃO #{{ solicitacao.id }} </span>
+
+          <h2 id="detalhes-titulo">Detalhes da solicitação</h2>
+
+          <p>Visualização das informações da solicitação registrada.</p>
+        </div>
+
+        <button
+          type="button"
+          class="botao-fechar"
+          aria-label="Fechar detalhes"
+          (click)="fecharDetalhes()"
+        >
+          ×
+        </button>
+      </header>
+
+      <!-- Status -->
+
+      <div class="detalhes-status">
+        <span class="status-label"> Status atual </span>
+
+        <span
+          class="status-badge"
+          [class.aberto]="solicitacao.status === 'ABERTO'"
+          [class.atendimento]="solicitacao.status === 'EM_ATENDIMENTO'"
+          [class.concluido]="solicitacao.status === 'CONCLUIDO'"
+        >
+          {{ getStatusLabel(solicitacao.status) }}
+        </span>
+      </div>
+
+      <!-- Informações -->
+
+      <div class="detalhes-grid">
+        <div class="detalhe-item detalhe-titulo">
+          <span class="detalhe-label"> Título </span>
+
+          <span class="detalhe-valor">
+            {{ solicitacao.titulo }}
+          </span>
+        </div>
+
+        <div class="detalhe-item">
+          <span class="detalhe-label"> Categoria </span>
+
+          <span class="categoria-badge">
+            {{ getCategoriaLabel(solicitacao.categoria) }}
+          </span>
+        </div>
+
+        <div class="detalhe-item">
+          <span class="detalhe-label"> Solicitante </span>
+
+          <span class="detalhe-valor">
+            {{ getSolicitante() }}
+          </span>
+        </div>
+
+        <div class="detalhe-item">
+          <span class="detalhe-label"> Data de abertura </span>
+
+          <span class="detalhe-valor">
+            {{ solicitacao.created_at | date: 'dd/MM/yyyy HH:mm' }}
+          </span>
+        </div>
+
+        <div class="detalhe-item">
+          <span class="detalhe-label"> Última atualização </span>
+
+          <span class="detalhe-valor">
+            {{ solicitacao.updated_at | date: 'dd/MM/yyyy HH:mm' }}
+          </span>
+        </div>
+      </div>
+
+      <!-- Descrição -->
+
+      <div class="descricao-section">
+        <span class="detalhe-label"> Descrição </span>
+
+        <div class="descricao-box">
+          {{ solicitacao.descricao }}
+        </div>
+      </div>
+
+      <!-- Rodapé -->
+
+      <footer class="detalhes-footer">
+        <button type="button" class="botao-fechar-footer" (click)="fecharDetalhes()">Fechar</button>
+      </footer>
+    </section>
+  </div>
+}

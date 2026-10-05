@@ -1,0 +1,27 @@
+<div class="portal-layout">
+  <app-sidebar></app-sidebar>
+
+  <main class="portal-content">
+    <div class="nova-solicitacao-page">
+
+      <header class="page-header">
+        <div>
+          <span class="pagina-eyebrow">PORTAL INTERNO</span>
+
+          <h2>Nova solicitação</h2>
+
+          <p>
+            Preencha os dados abaixo para registrar uma nova solicitação.
+          </p>
+        </div>
+      </header>
+
+      <section class="content-card">
+        <app-formulario
+          (solicitacaoCriada)="solicitacaoCriada($event)"
+        ></app-formulario>
+      </section>
+
+    </div>
+  </main>
+</div>

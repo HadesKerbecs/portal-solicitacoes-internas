@@ -1,0 +1,446 @@
+:host {
+  display: block;
+}
+
+
+/* =========================
+   CONTAINER
+   ========================= */
+
+.lista-container {
+  width: 100%;
+}
+
+
+/* =========================
+   CABEÇALHO DA LISTA
+   ========================= */
+
+.lista-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 16px;
+}
+
+.lista-header-info {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  color: #64748b;
+  font-size: 13px;
+}
+
+.lista-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 24px;
+  height: 24px;
+  padding: 0 7px;
+
+  border-radius: 6px;
+
+  background: #eff6ff;
+  color: #2563eb;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+
+/* =========================
+   LISTA
+   ========================= */
+
+.solicitacoes-list {
+  display: flex;
+  flex-direction: column;
+
+  border: 1px solid #e5e9f0;
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  background: #ffffff;
+}
+
+
+/* =========================
+   SOLICITAÇÃO
+   ========================= */
+
+.solicitacao {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 24px;
+
+  padding: 20px 22px;
+
+  border-bottom: 1px solid #edf0f4;
+
+  transition:
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.solicitacao:last-child {
+  border-bottom: none;
+}
+
+.solicitacao:hover {
+  background: #fafcff;
+}
+
+
+/* =========================
+   CONTEÚDO
+   ========================= */
+
+.solicitacao-conteudo {
+  min-width: 0;
+  flex: 1;
+}
+
+
+/* =========================
+   TOPO
+   ========================= */
+
+.solicitacao-topo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.solicitacao-titulo-area {
+  min-width: 0;
+}
+
+.solicitacao-id {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #94a3b8;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.solicitacao h3 {
+  margin: 0;
+
+  color: #172033;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* =========================
+   DESCRIÇÃO
+   ========================= */
+
+.solicitacao-descricao {
+  max-width: 850px;
+
+  margin: 8px 0 14px;
+
+  color: #64748b;
+
+  font-size: 13px;
+  line-height: 1.5;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+}
+
+
+/* =========================
+   INFORMAÇÕES
+   ========================= */
+
+.solicitacao-info {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px 28px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.info-label {
+  color: #94a3b8;
+
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.info-value {
+  color: #475569;
+
+  font-size: 12px;
+  font-weight: 500;
+}
+
+
+/* =========================
+   BADGES
+   ========================= */
+
+.status-badge,
+.categoria-badge {
+  display: inline-flex;
+  align-items: center;
+
+  width: fit-content;
+
+  padding: 5px 9px;
+
+  border-radius: 6px;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.status-badge.aberto {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.status-badge.atendimento {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.status-badge.concluido {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.categoria-badge {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+
+/* =========================
+   AÇÕES
+   ========================= */
+
+.solicitacao-acoes {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 7px;
+
+  flex-shrink: 0;
+}
+
+.acao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  min-height: 34px;
+
+  padding: 7px 11px;
+
+  border: 1px solid transparent;
+  border-radius: 7px;
+
+  background: transparent;
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.acao span {
+  font-size: 14px;
+  line-height: 1;
+}
+
+
+/* Editar */
+
+.acao.editar {
+  border-color: #dbeafe;
+
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.acao.editar:hover {
+  background: #dbeafe;
+}
+
+
+/* Excluir */
+
+.acao.excluir {
+  border-color: #fee2e2;
+
+  background: #fff5f5;
+  color: #dc2626;
+}
+
+.acao.excluir:hover {
+  background: #fee2e2;
+}
+
+
+/* Status */
+
+.acao.status {
+  border-color: #e2e8f0;
+
+  background: #f8fafc;
+  color: #475569;
+}
+
+.acao.status:hover {
+  background: #e2e8f0;
+}
+
+
+/* =========================
+   LISTA VAZIA
+   ========================= */
+
+.lista-vazia {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 220px;
+
+  padding: 30px;
+
+  border: 1px dashed #d7dee8;
+  border-radius: 12px;
+
+  background: #fafbfc;
+
+  text-align: center;
+}
+
+.lista-vazia-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 46px;
+  height: 46px;
+
+  margin-bottom: 12px;
+
+  border-radius: 12px;
+
+  background: #eff6ff;
+
+  font-size: 20px;
+}
+
+.lista-vazia h3 {
+  margin: 0;
+
+  color: #334155;
+
+  font-size: 15px;
+}
+
+.lista-vazia p {
+  margin: 6px 0 0;
+
+  color: #94a3b8;
+
+  font-size: 13px;
+}
+
+/* Detalhes */
+
+.acao.detalhes {
+  border-color: #e2e8f0;
+
+  background: #ffffff;
+  color: #475569;
+}
+
+.acao.detalhes:hover {
+  background: #f1f5f9;
+}
+
+
+/* =========================
+   RESPONSIVO
+   ========================= */
+
+@media (max-width: 900px) {
+  .solicitacao {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .solicitacao-acoes {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .solicitacao {
+    padding: 16px;
+  }
+
+  .solicitacao-topo {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .solicitacao h3 {
+    white-space: normal;
+  }
+
+  .solicitacao-info {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .solicitacao-acoes {
+    flex-wrap: wrap;
+  }
+}

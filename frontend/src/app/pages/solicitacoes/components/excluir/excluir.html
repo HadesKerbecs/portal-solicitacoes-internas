@@ -1,0 +1,19 @@
+<div class="confirmacao-icon">!</div>
+
+<div class="confirmacao-conteudo">
+  <span class="eyebrow">CONFIRMAÇÃO</span>
+
+  <h3>Excluir solicitação?</h3>
+
+  <p>
+    Tem certeza que deseja excluir a solicitação
+    <strong>{{ solicitacao?.titulo }}</strong
+    >?
+  </p>
+
+  <div class="acoes">
+    <button type="button" class="btn-cancelar" (click)="cancelar()">Cancelar</button>
+
+    <button type="button" class="btn-excluir" (click)="excluir()">Excluir solicitação</button>
+  </div>
+</div>

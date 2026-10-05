@@ -1,0 +1,165 @@
+:host {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+
+  width: 100%;
+  max-width: 620px;
+
+  box-sizing: border-box;
+
+  margin: 24px 0;
+  padding: 24px;
+
+  background: #ffffff;
+
+  border: 1px solid #fee2e2;
+  border-radius: 16px;
+
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+}
+
+/* Ícone */
+
+.confirmacao-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 42px;
+  height: 42px;
+
+  border-radius: 12px;
+
+  background: #fef2f2;
+  color: #dc2626;
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* Conteúdo */
+
+.confirmacao-conteudo {
+  flex: 1;
+  min-width: 0;
+}
+
+.eyebrow {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #dc2626;
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+h3 {
+  margin: 0 0 8px;
+
+  color: #172033;
+
+  font-size: 19px;
+  font-weight: 700;
+}
+
+p {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+strong {
+  color: #334155;
+  font-weight: 600;
+}
+
+/* Ações */
+
+.acoes {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  gap: 8px;
+
+  margin-top: 20px;
+}
+
+/* Botões */
+
+button {
+  height: 40px;
+
+  padding: 0 15px;
+
+  border-radius: 8px;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+}
+
+.btn-cancelar {
+  border: 1px solid #d8dee8;
+
+  background: #ffffff;
+  color: #475569;
+}
+
+.btn-cancelar:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.btn-excluir {
+  border: none;
+
+  background: #dc2626;
+  color: #ffffff;
+
+  box-shadow: 0 2px 5px rgba(220, 38, 38, 0.18);
+}
+
+.btn-excluir:hover {
+  background: #b91c1c;
+
+  box-shadow: 0 4px 10px rgba(220, 38, 38, 0.22);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Responsividade */
+
+@media (max-width: 600px) {
+  :host {
+    padding: 20px;
+  }
+
+  .acoes {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .acoes button {
+    width: 100%;
+  }
+}

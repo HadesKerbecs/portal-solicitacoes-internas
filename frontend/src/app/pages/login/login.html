@@ -1,0 +1,102 @@
+<div class="login-page">
+  <section class="login-panel">
+    <div class="login-card">
+      <div class="brand">
+        <div class="brand-icon">
+          <span></span>
+          <span></span>
+        </div>
+
+        <div>
+          <strong>Portal de</strong>
+          <strong>Solicitações</strong>
+        </div>
+      </div>
+
+      <div class="login-header">
+        <h1>Bem-vindo!</h1>
+        <p>Acesse sua conta para continuar</p>
+      </div>
+
+      <form (ngSubmit)="login()">
+        <div class="form-group">
+          <label for="username">Usuário</label>
+
+          <input
+            id="username"
+            type="text"
+            name="username"
+            placeholder="Seu usuário"
+            [(ngModel)]="username"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Senha</label>
+
+          <input
+            id="password"
+            type="password"
+            name="password"
+            placeholder="Sua senha"
+            [(ngModel)]="password"
+            required
+          />
+        </div>
+
+        <button type="submit" class="login-button">
+          Entrar
+          <span>↗</span>
+        </button>
+
+        <a routerLink="/cadastro" class="register-button"> Criar uma conta </a>
+      </form>
+
+      <div class="login-footer">
+        <span>Sistema interno</span>
+        <span>•</span>
+        <span>Acesso restrito</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="login-hero">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <div class="hero-logo">
+        <div class="hero-logo-icon">
+          <span></span>
+          <span></span>
+        </div>
+
+        <strong>Portal de<br />Solicitações</strong>
+      </div>
+
+      <h2>
+        Gestão de<br />
+        solicitações internas<br />
+        de forma simples<br />
+        e eficiente.
+      </h2>
+
+      <div class="hero-features">
+        <div class="feature">
+          <div class="feature-icon">✓</div>
+          <span>Centralize suas solicitações</span>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">✓</div>
+          <span>Acompanhe o andamento</span>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">✓</div>
+          <span>Mais organização para sua equipe</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

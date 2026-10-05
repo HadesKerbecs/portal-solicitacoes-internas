@@ -1,0 +1,62 @@
+<div class="formulario-header">
+  <div>
+    <span class="formulario-eyebrow">SOLICITAÇÕES</span>
+    <h3>Nova solicitação</h3>
+    <p>Preencha os dados abaixo para registrar uma nova solicitação.</p>
+  </div>
+
+  <div class="formulario-icon">+</div>
+</div>
+
+<div class="formulario-grid">
+  <div class="form-group campo-titulo">
+    <label for="titulo">Título</label>
+
+    <input
+      id="titulo"
+      type="text"
+      placeholder="Ex.: Problema no computador da recepção"
+      [(ngModel)]="titulo"
+    />
+  </div>
+
+  <div class="form-group campo-categoria">
+    <label for="categoria">Categoria</label>
+
+    <select id="categoria" [(ngModel)]="categoria">
+      <option value="">Selecione uma categoria</option>
+
+      @for (categoria of categorias; track categoria.value) {
+        <option [value]="categoria.value">
+          {{ categoria.label }}
+        </option>
+      }
+    </select>
+  </div>
+
+  <div class="form-group campo-descricao">
+    <label for="descricao">Descrição</label>
+
+    <textarea
+      id="descricao"
+      placeholder="Descreva detalhadamente o que precisa ser solicitado..."
+      [(ngModel)]="descricao"
+    ></textarea>
+  </div>
+
+  @if (mensagemErro) {
+    <div class="erro">
+      <span class="erro-icon">!</span>
+      <span>{{ mensagemErro }}</span>
+    </div>
+  }
+</div>
+
+<div class="formulario-footer">
+  <span class="campo-obrigatorio"> * Preencha todos os campos </span>
+
+  <button (click)="criarSolicitacao()">
+    <span>+</span>
+    Criar solicitação
+  </button>
+</div>

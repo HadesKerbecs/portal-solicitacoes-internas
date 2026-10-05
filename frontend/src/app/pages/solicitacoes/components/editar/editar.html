@@ -1,0 +1,45 @@
+<div class="editar-header">
+  <div class="editar-icon">✎</div>
+
+  <div>
+    <span class="editar-eyebrow">ALTERAÇÃO</span>
+    <h3>Editar solicitação</h3>
+    <p>Atualize os dados da solicitação abaixo.</p>
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="editar-titulo">Título</label>
+
+  <input id="editar-titulo" type="text" placeholder="Título da solicitação" [(ngModel)]="titulo" />
+</div>
+
+<div class="form-group">
+  <label for="editar-descricao">Descrição</label>
+
+  <textarea
+    id="editar-descricao"
+    placeholder="Descreva a solicitação"
+    [(ngModel)]="descricao"
+  ></textarea>
+</div>
+
+<div class="form-group">
+  <label for="editar-categoria">Categoria</label>
+
+  <select id="editar-categoria" [(ngModel)]="categoria">
+    <option value="">Selecione uma categoria</option>
+
+    @for (categoria of categorias; track categoria.value) {
+      <option [value]="categoria.value">
+        {{ categoria.label }}
+      </option>
+    }
+  </select>
+</div>
+
+<div class="editar-acoes">
+  <button type="button" class="btn-cancelar" (click)="cancelar()">Cancelar</button>
+
+  <button type="button" class="btn-salvar" (click)="salvar()">Salvar alterações</button>
+</div>

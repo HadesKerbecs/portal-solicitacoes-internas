@@ -1,0 +1,443 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  background: #f5f7fb;
+}
+
+/* =========================
+   LADO DO LOGIN
+   ========================= */
+
+.login-panel {
+  width: 46%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px;
+
+  background: #ffffff;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 440px;
+}
+
+/* Logo */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-bottom: 58px;
+}
+
+.brand-icon,
+.hero-logo-icon {
+  position: relative;
+
+  width: 42px;
+  height: 42px;
+}
+
+.brand-icon span,
+.hero-logo-icon span {
+  position: absolute;
+
+  border-radius: 7px;
+}
+
+.brand-icon span:first-child,
+.hero-logo-icon span:first-child {
+  width: 24px;
+  height: 32px;
+
+  top: 4px;
+  left: 4px;
+
+  background: #2563eb;
+}
+
+.brand-icon span:last-child,
+.hero-logo-icon span:last-child {
+  width: 24px;
+  height: 32px;
+
+  top: 9px;
+  left: 14px;
+
+  background: #60a5fa;
+
+  opacity: 0.85;
+}
+
+.brand div:last-child {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand strong {
+  color: #172033;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+/* Cabeçalho */
+
+.login-header {
+  margin-bottom: 32px;
+}
+
+.login-header h1 {
+  margin: 0 0 8px;
+
+  color: #172033;
+
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.login-header p {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 14px;
+}
+
+/* Formulário */
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #334155;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.form-group input {
+  width: 100%;
+  height: 48px;
+
+  padding: 0 14px;
+
+  border: 1px solid #dce2ea;
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #172033;
+
+  font-family: inherit;
+  font-size: 14px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.form-group input::placeholder {
+  color: #94a3b8;
+}
+
+.form-group input:focus {
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Botão */
+
+.login-button {
+  width: 100%;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #2563eb;
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.login-button:hover {
+  background: #1d4ed8;
+}
+
+.login-button:active {
+  transform: scale(0.99);
+}
+
+.login-button span {
+  font-size: 18px;
+}
+
+/* Rodapé */
+
+.login-footer {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+
+  margin-top: 45px;
+
+  color: #94a3b8;
+
+  font-size: 11px;
+}
+
+
+/* =========================
+   PAINEL DIREITO
+   ========================= */
+
+.login-hero {
+  position: relative;
+
+  width: 54%;
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #0f2d4d 0%,
+      #16436d 45%,
+      #0b2744 100%
+    );
+}
+
+/*
+  Elementos decorativos para dar
+  profundidade ao painel.
+*/
+
+.login-hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 600px;
+  height: 600px;
+
+  right: -220px;
+  bottom: -260px;
+
+  border-radius: 50%;
+
+  background: rgba(59, 130, 246, 0.18);
+}
+
+.login-hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 400px;
+  height: 400px;
+
+  top: -180px;
+  right: -100px;
+
+  border-radius: 50%;
+
+  background: rgba(96, 165, 250, 0.12);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(15, 45, 77, 0.9),
+      rgba(16, 63, 101, 0.72)
+    );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 80px;
+}
+
+/* Logo do painel */
+
+.hero-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-bottom: 55px;
+
+  color: #ffffff;
+}
+
+.hero-logo-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.hero-logo-icon span:first-child {
+  background: #ffffff;
+}
+
+.hero-logo-icon span:last-child {
+  background: #60a5fa;
+}
+
+.hero-logo strong {
+  font-size: 16px;
+  line-height: 18px;
+}
+
+/* Texto principal */
+
+.hero-content h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(32px, 3vw, 48px);
+  line-height: 1.12;
+
+  font-weight: 700;
+}
+
+/* Recursos */
+
+.hero-features {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  margin-top: 48px;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  color: rgba(255, 255, 255, 0.92);
+
+  font-size: 14px;
+}
+
+.feature-icon {
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.1);
+
+  color: #ffffff;
+
+  font-size: 14px;
+}
+
+.register-button {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 12px;
+  padding: 13px;
+  border: 1px solid #d9e2ec;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #1976d2;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.register-button:hover {
+  background: #f5f9ff;
+  border-color: #1976d2;
+}
+
+/* =========================
+   RESPONSIVIDADE
+   ========================= */
+
+@media (max-width: 900px) {
+  .login-panel {
+    width: 100%;
+  }
+
+  .login-hero {
+    display: none;
+  }
+
+  .login-card {
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 500px) {
+  .login-panel {
+    padding: 28px 20px;
+  }
+
+  .brand {
+    margin-bottom: 40px;
+  }
+
+  .login-header h1 {
+    font-size: 26px;
+  }
+}

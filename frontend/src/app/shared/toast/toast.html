@@ -1,0 +1,17 @@
+@if (mensagem) {
+  <div class="toast" [class]="tipo">
+    <span class="toast-icon">
+      @if (tipo === 'sucesso') {
+        ✓
+      } @else if (tipo === 'erro') {
+        !
+      } @else {
+        i
+      }
+    </span>
+
+    <span class="toast-mensagem">
+      {{ mensagem }}
+    </span>
+  </div>
+}

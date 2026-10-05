@@ -1,0 +1,116 @@
+<div class="lista-container">
+  @if (solicitacoes.length === 0) {
+    <div class="lista-vazia">
+      <div class="lista-vazia-icon">📄</div>
+
+      <h3>Nenhuma solicitação encontrada</h3>
+
+      <p>Não existem solicitações para os filtros selecionados.</p>
+    </div>
+  }
+
+  @if (solicitacoes.length > 0) {
+    <div class="lista-header">
+      <div class="lista-header-info">
+        <span class="lista-count">
+          {{ solicitacoes.length }}
+        </span>
+
+        <span>
+          {{ solicitacoes.length === 1 ? 'solicitação encontrada' : 'solicitações encontradas' }}
+        </span>
+      </div>
+    </div>
+
+    <div class="solicitacoes-list">
+      @for (solicitacao of solicitacoes; track solicitacao.id) {
+        <article class="solicitacao">
+          <div class="solicitacao-conteudo">
+            <div class="solicitacao-topo">
+              <div class="solicitacao-titulo-area">
+                <span class="solicitacao-id"> #{{ solicitacao.id }} </span>
+
+                <h3>
+                  {{ solicitacao.titulo }}
+                </h3>
+              </div>
+
+              <span
+                class="status-badge"
+                [class.aberto]="solicitacao.status === 'ABERTO'"
+                [class.atendimento]="solicitacao.status === 'EM_ATENDIMENTO'"
+                [class.concluido]="solicitacao.status === 'CONCLUIDO'"
+              >
+                {{ getStatusLabel(solicitacao.status) }}
+              </span>
+            </div>
+
+            <p class="solicitacao-descricao">
+              {{ solicitacao.descricao }}
+            </p>
+
+            <div class="solicitacao-info">
+              <div class="info-item">
+                <span class="info-label">Categoria</span>
+
+                <span class="categoria-badge">
+                  {{ getCategoriaLabel(solicitacao.categoria) }}
+                </span>
+              </div>
+
+              <div class="info-item">
+                <span class="info-label">Solicitante</span>
+
+                <span class="info-value">
+                  {{ solicitacao.solicitante.username }}
+                </span>
+              </div>
+
+              <div class="info-item">
+                <span class="info-label">Data de abertura</span>
+
+                <span class="info-value">
+                  {{ solicitacao.created_at | date: 'dd/MM/yyyy HH:mm' }}
+                </span>
+              </div>
+
+              <div class="info-item">
+                <span class="info-label">Status</span>
+
+                <span class="info-value">
+                  {{ getStatusLabel(solicitacao.status) }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="solicitacao-acoes">
+            <button type="button" class="acao detalhes" (click)="detalhes.emit(solicitacao)">
+              <span>⌕</span>
+              Detalhes
+            </button>
+
+            @if (solicitacao.status === 'ABERTO') {
+              <button type="button" class="acao editar" (click)="editar.emit(solicitacao)">
+                <span>✎</span>
+                Editar
+              </button>
+
+              <button type="button" class="acao excluir" (click)="excluir.emit(solicitacao)">
+                <span>×</span>
+                Excluir
+              </button>
+            }
+
+            @if (solicitacao.status !== 'CONCLUIDO') {
+              <button type="button" class="acao status" (click)="selecionarStatus(solicitacao)">
+                <span>↻</span>
+                Alterar status
+              </button>
+            }
+          </div>
+        </article>
+      }
+    </div>
+  }
+</div>

@@ -1,0 +1,55 @@
+<aside class="sidebar">
+  <div class="sidebar-brand">
+    <div class="brand-icon">+</div>
+
+    <div class="brand-text">
+      <strong>Portal de</strong>
+      <strong>Solicitações</strong>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+    <span class="nav-label">MENU</span>
+
+    <a
+      routerLink="/dashboard"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="nav-item"
+    >
+      <span class="nav-icon">▦</span>
+      <span>Dashboard</span>
+    </a>
+
+    <a
+      routerLink="/solicitacoes"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="nav-item"
+    >
+      <span class="nav-icon">☷</span>
+      <span>Solicitações</span>
+    </a>
+
+    <a routerLink="/nova-solicitacao" routerLinkActive="active" class="nav-item">
+      <span class="nav-icon">＋</span>
+      <span>Nova Solicitação</span>
+    </a>
+  </nav>
+
+  <div class="sidebar-footer">
+    <div class="usuario">
+      <div class="usuario-avatar">{{ getInicial() }}</div>
+
+      <div class="usuario-info">
+        <span class="usuario-label">Usuário</span>
+        <strong>{{ username }}</strong>
+      </div>
+    </div>
+
+    <button type="button" class="logout-button" (click)="logout()">
+      <span class="nav-icon">↪</span>
+      <span>Sair</span>
+    </button>
+  </div>
+</aside>
